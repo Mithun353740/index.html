@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Team</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1em;
+            text-align: center;
+            animation: fadeIn 2s;
+            border: 2px solid #00aaff;
+            border-radius: 10px;
+            margin: 1em;
+            background-color: #0077cc;
+            font-size: 2em;
+            font-family: 'Lobster', cursive;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.5em;
+                padding: 0.5em;
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        aside {
+            width: 25%;
+            padding: 1em;
+            background-color: #444;
+        }
+
+        aside h2 {
+            text-align: center;
+            border: 2px solid #00aaff;
+            border-radius: 10px;
+            padding: 0.5em;
+            background-color: #0077cc;
+            font-family: 'Lobster', cursive;
+        }
+
+        aside ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        aside li {
+            margin: 0.5em 0;
+        }
+
+        aside input {
+            width: 100%;
+            padding: 0.5em;
+            margin: 0.2em 0;
+            border: 2px solid #00aaff;
+            border-radius: 5px;
+            background-color: #555;
+            color: white;
+            font-size: 1.2em;
+            font-family: 'Lobster', cursive;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        aside input:focus {
+            border-color: #0077cc;
+            outline: none;
+        }
+
+        aside input:not(:placeholder-shown) {
+            background-color: #333;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 1em;
+            background-color: #555;
+        }
+
+        main h2 {
+            text-align: center;
+            border: 2px solid #00aaff;
+            border-radius: 10px;
+            padding: 0.5em;
+            background-color: #0077cc;
+            font-family: 'Lobster', cursive;
+        }
+
+        .match-info {
+            text-align: center;
+            margin-top: 1em;
+        }
+
+        .match-info input {
+            margin: 0.5em;
+            padding: 0.5em;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            font-family: 'Lobster', cursive;
+        }
+
+        .match-info input:focus {
+            transform: scale(1.1);
+        }
+
+        .match-info button {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            font-size: 1.2em;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .match-info button:hover {
+            background-color: #0077cc;
+        }
+
+        #save-opponent-button {
+            background-color: #28a745;
+        }
+
+        #save-opponent-button:hover {
+            background-color: #218838;
+        }
+
+        aside button {
+            background-color: #28a745; /* Default green color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 0.5em 1em;
+            transition: transform 0.3s;
+        }
+
+        aside button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            aside {
+                width: 100%;
+            }
+
+            main {
+                width: 100%;
+            }
+
+            aside ul input {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Football</h1>
+    </header>
+    <div class="container">
+        <aside>
+            <h2>Players</h2>
+            <ul>
+                <li><input type="text" placeholder="Player 1" aria-label="Player 1"></li>
+                <li><input type="text" placeholder="Player 2" aria-label="Player 2"></li>
+                <li><input type="text" placeholder="Player 3" aria-label="Player 3"></li>
+                <li><input type="text" placeholder="Player 4" aria-label="Player 4"></li>
+                <li><input type="text" placeholder="Player 5" aria-label="Player 5"></li>
+                <li><input type="text" placeholder="Player 6" aria-label="Player 6"></li>
+                <li><input type="text" placeholder="Player 7" aria-label="Player 7"></li>
+                <li><input type="text" placeholder="Player 8" aria-label="Player 8"></li>
+                <li><input type="text" placeholder="Player 9" aria-label="Player 9"></li>
+                <li><input type="text" placeholder="Player 10" aria-label="Player 10"></li>
+                <li><input type="text" placeholder="Player 11" aria-label="Player 11"></li>
+                <li><input type="text" placeholder="Player 12" aria-label="Player 12"></li>
+                <li><input type="text" placeholder="Player 13" aria-label="Player 13"></li>
+                <li><input type="text" placeholder="Player 14" aria-label="Player 14"></li>
+            </ul>
+            <button onclick="savePlayers()">Save Players</button>
+        </aside>
+        <main>
+            <h2>Next Opponent</h2>
+            <div class="match-info">
+                <input type="text" id="team-name" placeholder="Your Team Name" aria-label="Your Team Name">
+                <span>vs</span>
+                <input type="text" id="opponent-name" placeholder="Opponent Team Name" aria-label="Opponent Team Name">
+                <button id="save-opponent-button" onclick="saveOpponent()">Save Opponent</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function savePlayers() {
+            let players = [];
+            const playerInputs = document.querySelectorAll('aside ul input');
+            playerInputs.forEach(input => {
+                players.push(input.value);
+            });
+            localStorage.setItem('players', JSON.stringify(players));
+            alert('Players saved!');
+        }
+
+        function saveOpponent() {
+            const teamName = document.getElementById('team-name').value;
+            const opponentName = document.getElementById('opponent-name').value;
+            localStorage.setItem('teamName', teamName);
+            localStorage.setItem('opponentName', opponentName);
+            alert('Opponent saved!');
+        }
+    </script>
+</body>
+</html>
